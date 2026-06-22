@@ -47,3 +47,21 @@ Contoh: Dapur Bersama, Ruang Tamu/Aula, Ruang Belajar, WiFi Area, dan Tempat Par
 
 5. Footer (Bagian Paling Bawah)
 Berisi peta lokasi (bisa gunakan teks alamat atau embed sederhana), hak cipta, dan media sosial asrama.
+
+Rancangan Konten untuk Login Page (login.html)
+
+Kotak Login (Login Card): Berada tepat di tengah-tengah layar (menggunakan efek latar belakang visual asrama yang sedikit buram atau estetik).
+
+Header Box: Logo asrama atau ikon gembok/user, diikuti judul "Log In Penghuni".
+
+Form Input:
+
+Input untuk Username / Email (menggunakan atribut required).
+
+Input untuk Password (menggunakan atribut required).
+
+Fitur Tambahan (Opsi): Checkbox "Ingat Saya" dan link "Lupa Password?" yang dibuat sejajar (menggunakan Flexbox).
+
+Tombol Action: Tombol "Masuk" yang didesain mencolok dan interaktif saat di-hover.
+
+Footer Box (Navigasi Alur): Teks "Belum punya akun? Daftar di sini" yang nantinya akan mengarah ke halaman Register.

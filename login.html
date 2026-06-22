@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asrama Kita - Masuk Area Penghuni</title>
+    <!-- Menghubungkan CSS global (untuk font/reset) dan CSS khusus login -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body class="login-body">
+
+    <div class="login-container">
+        <!-- Bagian Atas Kartu Login -->
+        <div class="login-header">
+            <h2>Asrama Kita</h2>
+            <p>Silakan masuk untuk mengakses dashboard penghuni</p>
+        </div>
+
+        <!-- Form Login -->
+        <!-- Catatan UAS: action diarahkan langsung ke halaman penghuni seolah-olah sukses login -->
+        <form action="penghuni.html" method="GET" class="login-form">
+            
+            <!-- Group Input Username -->
+            <div class="input-group">
+                <label for="username">Username atau Email</label>
+                <input type="text" id="username" name="username" placeholder="Masukkan username Anda" required>
+            </div>
+
+            <!-- Group Input Password -->
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Masukkan password Anda" required>
+            </div>
+
+            <!-- Opsi Tambahan (Ingat Saya & Lupa Password) -->
+            <div class="login-options">
+                <label class="remember-me">
+                    <input type="checkbox" name="remember"> Ingat Saya
+                </label>
+                <a href="#" class="forgot-password">Lupa Password?</a>
+            </div>
+
+            <!-- Tombol Masuk -->
+            <button type="submit" class="btn-submit">Masuk Ke Asrama</button>
+        </form>
+
+        <!-- Link Pengalihan ke Halaman Daftar -->
+        <div class="login-footer">
+            <p>Belum menjadi penghuni? <a href="register.html">Daftar di sini</a></p>
+            <a href="index.html" class="back-home">← Kembali ke Beranda</a>
+        </div>
+    </div>
+
+</body>
+</html>
