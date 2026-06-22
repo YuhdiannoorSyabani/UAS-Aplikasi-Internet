@@ -1,0 +1,374 @@
+/* ==========================================================================
+   1. LAYOUT UTAMA DASHBOARD (Sidebar + Konten)
+   ========================================================================== */
+.dashboard-body {
+    background-color: #f0f2f5;
+    min-height: 100vh;
+}
+
+.dashboard-wrapper {
+    display: flex; /* Membagi halaman menjadi Sidebar di kiri dan Konten di kanan */
+    min-height: 100vh;
+}
+
+/* ==========================================================================
+   2. GAYA SIDEBAR NAVIGASI INTERNAL
+   ========================================================================== */
+.sidebar {
+    width: 260px;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    display: flex;
+    flex-direction: column;
+    padding: 30px 20px;
+    position: fixed; /* Membuat sidebar tetap terkunci di kiri saat konten di-scroll */
+    height: 100vh;
+}
+
+.sidebar-brand {
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 15px;
+}
+
+.sidebar-brand h3 {
+    font-size: 22px;
+    letter-spacing: 1px;
+}
+
+.user-role {
+    font-size: 12px;
+    color: var(--secondary-color);
+    font-weight: 600;
+}
+
+/* Profil Singkat Penghuni di Sidebar */
+.user-profile-summary {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: rgba(255,255,255,0.05);
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.user-avatar {
+    font-size: 24px;
+    background: rgba(255,255,255,0.1);
+    padding: 5px 10px;
+    border-radius: 50%;
+}
+
+.user-info h4 {
+    font-size: 14px;
+}
+
+.user-info p {
+    font-size: 11px;
+    color: #bdc3c7;
+}
+
+/* Menu Navigasi Sidebar */
+.sidebar-menu ul li {
+    margin-bottom: 8px;
+}
+
+.sidebar-menu ul li a {
+    display: block;
+    padding: 12px 15px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #ecf0f1;
+}
+
+.sidebar-menu ul li a:hover,
+.sidebar-menu ul li a.active {
+    background-color: var(--secondary-color);
+    color: var(--text-light);
+    padding-left: 20px; /* Efek bergeser sedikit ke kanan saat di-hover */
+}
+
+/* Tombol Log Out Khusus Merah */
+.menu-logout a:hover {
+    background-color: var(--accent-color) !important;
+}
+
+/* ==========================================================================
+   3. AREA KONTEN UTAMA (MAIN CONTENT)
+   ========================================================================== */
+.main-content {
+    flex: 1;
+    margin-left: 260px; /* Memberi ruang agar konten tidak tertutup oleh sidebar yang diposisikan fixed */
+    padding: 40px;
+}
+
+.content-header {
+    margin-bottom: 30px;
+}
+
+.content-header h2 {
+    color: var(--primary-color);
+    font-size: 28px;
+}
+
+.date-text {
+    color: #7f8c8d;
+    font-size: 14px;
+}
+
+/* ==========================================================================
+   4. SEKSI ALERT NOTIFIKASI PELANGGARAN
+   ========================================================================== */
+.alert-danger-box {
+    background-color: #fde8e8;
+    border-left: 5px solid var(--accent-color);
+    padding: 20px;
+    border-radius: 0 8px 8px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 35px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+}
+
+.alert-icon { font-size: 24px; }
+.alert-text { flex: 1; margin-left: 15px; }
+.alert-text h4 { color: #c81e1e; margin-bottom: 2px; }
+.alert-text p { color: #9b1c1c; font-size: 14px; }
+
+.btn-alert-action {
+    background-color: var(--accent-color);
+    color: var(--text-light);
+    padding: 8px 18px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.btn-alert-action:hover {
+    background-color: #c81e1e;
+    transform: scale(1.05);
+}
+
+/* ==========================================================================
+   5. SEKSI WIDGET CARDS (RINGKASAN STATUS)
+   ========================================================================== */
+.widget-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.widget-card {
+    background-color: var(--text-light);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    border-top: 4px solid var(--primary-color);
+}
+
+.widget-card h3 { font-size: 14px; color: #7f8c8d; text-transform: uppercase; margin-bottom: 10px; }
+.widget-value { font-size: 24px; font-weight: 700; color: var(--primary-color); }
+.widget-desc { font-size: 12px; color: #95a5a6; }
+
+/* Variasi Warna Atas Widget */
+.status-aman { border-top-color: var(--secondary-color); }
+.status-warning { border-top-color: var(--warning-color); }
+.status-info { border-top-color: #3498db; }
+
+/* ==========================================================================
+   6. SEKSI KEUANGAN (DIAGRAM LINGKARAN & BATANG MURNI CSS)
+   ========================================================================== */
+.dashboard-section {
+    background-color: var(--text-light);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    margin-bottom: 40px;
+}
+
+.section-desc { color: #7f8c8d; font-size: 14px; margin-bottom: 25px; }
+
+.finance-container {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+/* Lingkaran Persentase */
+.finance-circle-card {
+    flex: 1;
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-right: 2px solid #f0f2f5;
+    padding-right: 20px;
+}
+
+/* Trik Utama Diagram Lingkaran CSS Menggunakan conic-gradient */
+.progress-circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: conic-gradient(var(--accent-color) calc(var(--percent) * 1%), #e2e8f0 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.circle-value {
+    width: 120px;
+    height: 120px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.finance-summary-text { font-size: 14px; line-height: 1.8; text-align: center; }
+
+/* Diagram Batang */
+.finance-chart-card { flex: 2; min-width: 350px; }
+
+/* Wadah Penjajaran Grafik Batang Menyamping */
+.bar-chart-wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end; /* Memastikan semua batang berdiri sejajar dari bawah */
+    height: 220px;
+    border-bottom: 2px solid #bdc3c7;
+    padding-bottom: 10px;
+}
+
+.chart-bar-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 15%;
+}
+
+.bar-container {
+    width: 100%;
+    height: 160px; /* Tinggi maksimal grafik */
+    background-color: #f0f2f5;
+    border-radius: 4px 4px 0 0;
+    display: flex;
+    align-items: flex-end; /* Mengisi warna dari bawah ke atas */
+}
+
+.bar-fill {
+    width: 100%;
+    border-radius: 4px 4px 0 0;
+    position: relative;
+    transition: all 0.5s ease;
+}
+
+/* Tooltip Persentase saat Batang di-hover */
+.bar-tooltip {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--primary-color);
+    color: white;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.bar-fill:hover .bar-tooltip { opacity: 1; }
+
+/* Variasi Warna Pewarnaan Batang */
+.color-1 { background-color: #34495e; }
+.color-2 { background-color: #18bc9c; }
+.color-3 { background-color: #3498db; }
+.color-4 { background-color: #f39c12; }
+.color-5 { background-color: #95a5a6; }
+
+.bar-label { font-size: 10px; text-align: center; color: #7f8c8d; margin-top: 10px; font-weight: bold; }
+
+/* ==========================================================================
+   7. GAYA TABEL WHITELIST JABATAN
+   ========================================================================== */
+.table-container { overflow-x: auto; }
+.jobdesk-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 14px; }
+.jobdesk-table th, .jobdesk-table td { padding: 15px; border-bottom: 1px solid #e2e8f0; }
+.jobdesk-table th { background-color: #f8f9fa; color: var(--primary-color); font-weight: 700; }
+
+/* Zebra Striping & Hover Effect pada Baris Tabel */
+.jobdesk-table tbody tr:nth-child(even) { background-color: #fbfbfb; }
+.jobdesk-table tbody tr:hover { background-color: #f1f2f6; }
+
+/* Badge Atribut Jabatan Khusus */
+.badge-role { padding: 4px 10px; border-radius: 4px; font-size: 11px; font-weight: bold; color: white; }
+.role-sekretaris { background-color: #9b59b6; }
+.role-bendahara { background-color: #2ecc71; }
+.role-divisi { background-color: #34495e; }
+
+/* Badge Atribut Tingkat Urgensi Tugas */
+.badge-urgency { padding: 3px 8px; border-radius: 12px; font-size: 11px; font-weight: bold; }
+.urgency-high { background-color: #fde8e8; color: var(--accent-color); }
+.urgency-medium { background-color: #fef3c7; color: var(--warning-color); }
+.urgency-low { background-color: #e1effe; color: #1e429f; }
+
+/* ==========================================================================
+   8. POP-UP MODAL ENGINE (MURNI CSS TARGET)
+   ========================================================================== */
+.css-modal {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 9999;
+    display: none; /* Default tersembunyi */
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Trik Utama Pemicu Pop-Up Murni CSS */
+.css-modal:target {
+    display: flex; /* Aktif terbuka saat URL anchor terpanggil (#modal-pelanggaran) */
+}
+
+.modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 550px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    animation: modalSlide 0.4s ease-out;
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px; right: 20px;
+    font-size: 28px;
+    color: #95a5a6;
+}
+.close-modal:hover { color: var(--text-dark); }
+
+.modal-body-text { margin-top: 15px; }
+.pasal-box { background-color: #f8f9fa; border: 1px solid #e2e8f0; padding: 15px; border-radius: 6px; margin: 15px 0; }
+.pasal-box h4 { color: var(--primary-color); margin-bottom: 5px; }
+.status-sanksi { font-size: 14px; background-color: #fff8f8; padding: 10px; border-left: 3px solid var(--accent-color); }
+
+@keyframes modalSlide {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}

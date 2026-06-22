@@ -1,0 +1,172 @@
+/* ==========================================================================
+   1. HERO SECTION (Sambutan Utama)
+   ========================================================================== */
+.hero {
+    height: 75vh; /* Mengambil 75% tinggi layar gadget */
+    /* Menggunakan linear-gradient sebagai overlay gelap agar teks putih mudah dibaca */
+    background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.6)), 
+                url('https://images.unsplash.com/photo-1555854877-bab0e564b8d5?q=80&w=1200') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--text-light);
+    padding: 0 20px;
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.hero-content p {
+    font-size: 20px;
+    margin-bottom: 35px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Tombol Interaktif "Jelajahi Kamar" */
+.btn-hero {
+    background-color: var(--secondary-color);
+    color: var(--text-light);
+    padding: 12px 35px;
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(24, 188, 156, 0.4);
+}
+
+.btn-hero:hover {
+    background-color: #128f76;
+    box-shadow: 0 6px 20px rgba(24, 188, 156, 0.6);
+    transform: translateY(-3px); /* Tombol sedikit terangkat ke atas saat disorot */
+}
+
+
+/* ==========================================================================
+   2. DETAIL KAMAR SECTION (Menggunakan Flexbox Layout)
+   ========================================================================== */
+.kamar-section {
+    padding: 80px 8%;
+    background-color: var(--text-light);
+}
+
+.kamar-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* Jarak antar kotak (card) kamar */
+    flex-wrap: wrap; /* Agar jika layar kecil, card otomatis turun ke bawah */
+}
+
+/* Desain Kartu (Card) Kamar */
+.kamar-card {
+    background-color: var(--bg-light);
+    border-radius: 12px;
+    width: 450px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border: 1px solid #e1e8ed;
+}
+
+/* Badge Efek "Terpopuler" di CSS */
+.kamar-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: var(--warning-color);
+    color: var(--text-light);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.kamar-info {
+    padding: 30px;
+}
+
+.kamar-info h3 {
+    font-size: 24px;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.kamar-info p {
+    color: #666;
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+
+/* List Detail Fasilitas di Dalam Kamar */
+.kamar-info ul {
+    border-top: 1px solid #e1e8ed;
+    padding-top: 15px;
+}
+
+.kamar-info ul li {
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: var(--text-dark);
+    display: flex;
+    align-items: center;
+}
+
+/* Menambahkan tanda centang hijau tiruan sebelum teks fasilitas */
+.kamar-info ul li::before {
+    content: "✓";
+    color: var(--secondary-color);
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+/* Efek Hover Pada Card Kamar */
+.kamar-card:hover {
+    transform: translateY(-10px); /* Efek card melayang naik */
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+
+/* ==========================================================================
+   3. FASILITAS BERSAMA SECTION (Menggunakan CSS Grid Layout)
+   ========================================================================== */
+.fasilitas-section {
+    padding: 80px 8%;
+    background-color: var(--bg-light);
+}
+
+/* Menata 3 item fasilitas berdampingan secara otomatis dan responsif dengan Grid */
+.fasilitas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.fasilitas-item {
+    background-color: var(--text-light);
+    padding: 40px 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+}
+
+.fasilitas-item h3 {
+    font-size: 22px;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.fasilitas-item p {
+    color: #777;
+    font-size: 15px;
+}
+
+/* Efek transisi border tipis saat fasilitas di-hover */
+.fasilitas-item:hover {
+    outline: 2px solid var(--secondary-color);
+    background-color: #f0fdfa; /* Berubah warna latar lembut */
+}

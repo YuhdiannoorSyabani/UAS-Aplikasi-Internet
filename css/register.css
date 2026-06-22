@@ -1,0 +1,230 @@
+/* ==========================================================================
+   1. BODY KHUSUS HALAMAN REGISTER
+   ========================================================================== */
+.register-body {
+    background: linear-gradient(135deg, #34495e, var(--primary-color));
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px; /* Padding lebih besar karena form cukup panjang */
+}
+
+/* ==========================================================================
+   2. WADAH UTAMA FORM (REGISTER CARD)
+   ========================================================================== */
+.register-container {
+    background-color: var(--text-light);
+    padding: 40px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 800px; /* Diperlebar menjadi 800px agar input menyamping terlihat lega */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.register-header {
+    text-align: center;
+    margin-bottom: 35px;
+    border-bottom: 2px solid var(--bg-light);
+    padding-bottom: 20px;
+}
+
+.register-header h2 {
+    color: var(--primary-color);
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.register-header p {
+    color: #7f8c8d;
+    font-size: 15px;
+}
+
+/* ==========================================================================
+   3. GAYA FIELDSET & LEGEND (PENGELOMPOKAN DATA)
+   ========================================================================== */
+.register-form fieldset {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 25px;
+    background-color: #fbfbfb;
+}
+
+/* Menghias teks judul pengelompokan data */
+.register-form legend {
+    font-weight: 700;
+    color: var(--primary-color);
+    padding: 0 10px;
+    font-size: 16px;
+}
+
+/* ==========================================================================
+   4. TATA LETAK INPUT MENYAMPING (FLEXBOX ROW)
+   ========================================================================== */
+.form-row {
+    display: flex;
+    gap: 20px; /* Jarak antar kolom input */
+    margin-bottom: 15px;
+    flex-wrap: wrap; /* Fleksibel saat dibuka di layar HP */
+}
+
+/* Otomatis membagi rata ruang jika ada beberapa input dalam satu baris */
+.form-row .input-group,
+.form-row .input-group-file {
+    flex: 1;
+    min-width: 200px; /* Mencegah input terlalu menyusut di layar kecil */
+}
+
+.register-form .input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.register-form .input-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #4a5568;
+    margin-bottom: 6px;
+}
+
+.register-form .input-group input {
+    padding: 10px 14px;
+    border: 2px solid #e2e8f0;
+    border-radius: 6px;
+    font-family: var(--font-main);
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+.register-form .input-group input:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+}
+
+/* Khusus input bertipe berkas/file */
+.input-group-file label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #4a5568;
+    margin-bottom: 6px;
+}
+
+.input-group-file input {
+    width: 100%;
+    padding: 6px;
+    background-color: #fff;
+    border: 1px dashed var(--primary-color);
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   5. SEKSI PERATURAN ASRAMA (S&K DENGAN CUSTOM SCROLLBAR)
+   ========================================================================== */
+.rules-section {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.rules-label {
+    display: block;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+/* Membuat Kotak Peraturan yang Bisa Di-scroll */
+.rules-box {
+    height: 180px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 15px;
+    background-color: #fff;
+    overflow-y: scroll; /* Memunculkan scrollbar vertikal secara paksa */
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.rules-box h4 {
+    color: var(--primary-color);
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.rules-box p {
+    margin-bottom: 8px;
+}
+
+/* 🌟 TRIK UNGGULAN: Menghias Batang Scrollbar (Hanya bisa dibaca mesin webkit) */
+.rules-box::-webkit-scrollbar {
+    width: 8px;
+}
+
+.rules-box::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 0 8px 8px 0;
+}
+
+.rules-box::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 10px;
+}
+
+.rules-box::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary-color); /* Berubah warna saat trackbar disentuh */
+}
+
+/* Checkbox Persetujuan */
+.rules-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    color: #4a5568;
+    line-height: 1.4;
+}
+
+.rules-checkbox input {
+    margin-top: 3px;
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   6. TOMBOL DAFTAR & FOOTER Pengalihan
+   ========================================================================== */
+.btn-register {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--secondary-color);
+    color: var(--text-light);
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: var(--font-main);
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(24, 188, 156, 0.3);
+    transition: all 0.3s;
+}
+
+.btn-register:hover {
+    background-color: #128f76;
+    transform: translateY(-2px);
+}
+
+.register-footer {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 14px;
+    color: #7f8c8d;
+}
+
+.register-footer a {
+    color: var(--secondary-color);
+    font-weight: bold;
+}
