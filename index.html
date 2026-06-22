@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Asrama - Beranda</title>
+    <!-- Menghubungkan CSS global dan CSS khusus homepage -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/homepage.css">
+</head>
+<body>
+
+    <!-- 1. NAVIGATION BAR -->
+    <header class="navbar">
+        <div class="logo">Asrama Kita</div>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Beranda</a></li>
+                <li><a href="#kamar">Detail Kamar</a></li>
+                <li><a href="#fasilitas">Fasilitas</a></li>
+                <li><a href="login.html" class="btn-login">Area Penghuni</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- 2. HERO SECTION -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Selamat Datang di Asrama Kita</h1>
+                <p>Tempat terbaik untuk bertumbuh, belajar, dan menjalin kebersamaan dalam perantauan.</p>
+                <a href="#kamar" class="btn-hero">Jelajahi Kamar</a>
+            </div>
+        </section>
+
+        <!-- 3. DETAIL KAMAR SECTION -->
+        <section id="kamar" class="kamar-section">
+            <h2 class="section-title">Pilihan Tipe Kamar</h2>
+            <div class="kamar-container">
+                <!-- Card Kamar 1 -->
+                <div class="kamar-card">
+                    <div class="kamar-badge">Terpopuler</div>
+                    <div class="kamar-info">
+                        <h3>Kamar Reguler (2 Orang)</h3>
+                        <p>Cocok untuk kamu yang ingin memiliki teman diskusi dan berbagi cerita.</p>
+                        <ul>
+                            <li>2 Kasur & Lemari</li>
+                            <li>Meja Belajar Ganda</li>
+                            <li>Ventilasi Nyaman</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Card Kamar 2 -->
+                <div class="kamar-card">
+                    <div class="kamar-info">
+                        <h3>Kamar Single (1 Orang)</h3>
+                        <p>Pilihan tepat untuk kamu yang membutuhkan ketenangan ekstra saat belajar.</p>
+                        <ul>
+                            <li>1 Kasur Nyaman</li>
+                            <li>Lemari Pakaian</li>
+                            <li>Meja Kerja Mandiri</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. FASILITAS SECTION -->
+        <section id="fasilitas" class="fasilitas-section">
+            <h2 class="section-title">Fasilitas Bersama</h2>
+            <div class="fasilitas-grid">
+                <div class="fasilitas-item">
+                    <h3>🌐 WiFi Kencang</h3>
+                    <p>Akses internet 24 jam untuk mendukung tugas kuliahmu.</p>
+                </div>
+                <div class="fasilitas-item">
+                    <h3>🍳 Dapur Bersama</h3>
+                    <p>Lengkap dengan peralatan memasak untuk menghemat pengeluaran.</p>
+                </div>
+                <div class="fasilitas-item">
+                    <h3>📚 Ruang Belajar</h3>
+                    <p>Tempat yang tenang untuk kerja kelompok atau diskusi organisasi.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 5. FOOTER -->
+    <footer class="footer">
+        <p>&copy; 2026 Asrama Kita - UAS Teknik Informatika. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
