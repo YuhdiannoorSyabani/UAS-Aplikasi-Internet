@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Internal - Asrama Kita</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body class="dashboard-body">
+
+    <!-- POP-UP MODAL PERINGATAN PELANGGARAN (Murni CSS dengan teknik :target) -->
+    <div id="modal-pelanggaran" class="css-modal">
+        <div class="modal-content">
+            <a href="#" class="close-modal">&times;</a>
+            <h3 class="text-danger">⚠️ Detail Pelanggaran Anda</h3>
+            <hr>
+            <div class="modal-body-text">
+                <p>Anda tercatat melakukan pelanggaran pada tanggal <strong>18 Juni 2026</strong>.</p>
+                
+                <div class="pasal-box">
+                    <h4>BAB III: Tata Tertib Malam</h4>
+                    <p><strong>Pasal 7 (Poin b):</strong> "Setiap penghuni wajib berada di dalam asrama paling lambat pukul 22.00 WITA."</p>
+                    <p class="Keterangan-pelanggaran"><em>Keterangan: Terlambat kembali ke asrama tanpa izin tertulis dari Divisi Keamanan.</em></p>
+                </div>
+                
+                <p class="status-sanksi"><strong>Sanksi:</strong> Teguran Lisan & Piket Tambahan Bersama Divisi Perlengkapan.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- LAYOUT UTAMA -->
+    <div class="dashboard-wrapper">
+        
+        <!-- 1. SIDEBAR NAVIGASI -->
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <h3>Asrama Kita</h3>
+                <span class="user-role">Sistem Manajemen</span>
+            </div>
+            
+            <div class="user-profile-summary">
+                <div class="user-avatar">👤</div>
+                <div class="user-info">
+                    <h4>Muhammad Fauzan</h4>
+                    <p>Kamar 04 • Pengurus (PDD)</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-menu">
+                <ul>
+                    <li><a href="#" class="active">📊 Dashboard</a></li>
+                    <li><a href="#tugas-whitelist">📅 Whitelist Tugas</a></li>
+                    <li><a href="#keuangan">💰 Keuangan & Anggaran</a></li>
+                    <li class="menu-logout"><a href="index.html">🚪 Keluar</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- 2. KONTEN UTAMA -->
+        <main class="main-content">
+            
+            <header class="content-header">
+                <h2>Dashboard Manajemen Asrama</h2>
+                <p class="date-text">Senin, 22 Juni 2026</p>
+            </header>
+
+            <!-- FITUR 1: NOTIFIKASI PERINGATAN PELANGGARAN -->
+            <div class="alert-danger-box">
+                <span class="alert-icon">🚨</span>
+                <div class="alert-text">
+                    <h4>Sistem Peringatan Pelanggaran!</h4>
+                    <p>Anda memiliki 1 catatan pelanggaran belum diselesaikan bulan ini.</p>
+                </div>
+                <!-- Tombol ini memicu pop-up melalui link #modal-pelanggaran -->
+                <a href="#modal-pelanggaran" class="btn-alert-action">Lihat Pasal & Poin</a>
+            </div>
+
+            <!-- FITUR 2: KEUANGAN ASRAMA (Lingkaran Persentase & Diagram Batang CSS) -->
+            <section id="keuangan" class="dashboard-section">
+                <h3>💰 Laporan Keuangan Bulanan (Juni 2026)</h3>
+                <p class="section-desc">Ringkasan total anggaran, persentase pengeluaran, dan alokasi dana per pos.</p>
+                
+                <div class="finance-container">
+                    <!-- Lingkaran Persentase Total Pengeluaran -->
+                    <div class="finance-circle-card">
+                        <h4>Total Pengeluaran</h4>
+                        <!-- Lingkaran dibuat memanfaatkan CSS conic-gradient/border -->
+                        <div class="progress-circle" style="--percent: 65;">
+                            <span class="circle-value">65%</span>
+                        </div>
+                        <div class="finance-summary-text">
+                            <p>Pendapatan (Kas): <strong class="text-success">Rp 10.000.000</strong></p>
+                            <p>Pengeluaran: <strong class="text-danger">Rp 6.500.000</strong></p>
+                        </div>
+                    </div>
+
+                    <!-- Diagram Batang Pengeluaran Per Pos -->
+                    <div class="finance-chart-card">
+                        <h4>Alokasi Pengeluaran Per Pos</h4>
+                        <div class="bar-chart-wrapper">
+                            
+                            <!-- Batang 1 -->
+                            <div class="chart-bar-group">
+                                <div class="bar-container">
+                                    <div class="bar-fill color-1" style="height: 80%;">
+                                        <span class="bar-tooltip">80%</span>
+                                    </div>
+                                </div>
+                                <span class="bar-label">Operasional Wajib</span>
+                            </div>
+
+                            <!-- Batang 2 -->
+                            <div class="chart-bar-group">
+                                <div class="bar-container">
+                                    <div class="bar-fill color-2" style="height: 60%;">
+                                        <span class="bar-tooltip">60%</span>
+                                    </div>
+                                </div>
+                                <span class="bar-label">Kegiatan & Event</span>
+                            </div>
+
+                            <!-- Batang 3 -->
+                            <div class="chart-bar-group">
+                                <div class="bar-container">
+                                    <div class="bar-fill color-3" style="height: 45%;">
+                                        <span class="bar-tooltip">45%</span>
+                                    </div>
+                                </div>
+                                <span class="bar-label">Perbaikan & Fasilitas</span>
+                            </div>
+
+                            <!-- Batang 4 -->
+                            <div class="chart-bar-group">
+                                <div class="bar-container">
+                                    <div class="bar-fill color-4" style="height: 30%;">
+                                        <span class="bar-tooltip">30%</span>
+                                    </div>
+                                </div>
+                                <span class="bar-label">Dana Darurat</span>
+                            </div>
+
+                            <!-- Batang 5 -->
+                            <div class="chart-bar-group">
+                                <div class="bar-container">
+                                    <div class="bar-fill color-5" style="height: 15%;">
+                                        <span class="bar-tooltip">15%</span>
+                                    </div>
+                                </div>
+                                <span class="bar-label">Buffer Kas</span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FITUR 3: WHITELIST TUGAS & JABATAN KRUSIAL -->
+            <section id="tugas-whitelist" class="dashboard-section">
+                <h3>📋 Whitelist Tugas & Jabatan Krusial</h3>
+                <p class="section-desc">Daftar tugas khusus langsung dari Ketua Asrama untuk pengurus dan divisi tertentu.</p>
+                
+                <div class="table-container">
+                    <table class="jobdesk-table">
+                        <thead>
+                            <tr>
+                                <th>Pelaksana / Divisi</th>
+                                <th>Badge Jabatan</th>
+                                <th>Tugas Krusial Whitelist</th>
+                                <th>Tingkat Urgensi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Inayah</strong></td>
+                                <td><span class="badge-role role-sekretaris">Sekretaris</span></td>
+                                <td>Menyusun laporan proposal tahunan Musyawarah Besar Asrama</td>
+                                <td><span class="badge-urgency urgency-high">Tinggi</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Ahla</strong></td>
+                                <td><span class="badge-role role-bendahara">Bendahara</span></td>
+                                <td>Audit kas bulanan dan alokasi dana darurat perbaikan WiFi</td>
+                                <td><span class="badge-urgency urgency-high">Tinggi</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Yuhdi</strong></td>
+                                <td><span class="badge-role role-divisi">Div. Perlengkapan</span></td>
+                                <td>Pendataan aset inventaris kamar reguller nomor 01 sampai 10</td>
+                                <td><span class="badge-urgency urgency-medium">Sedang</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Fauzan</strong></td>
+                                <td><span class="badge-role role-divisi">Div. PDD</span></td>
+                                <td>Membuat desain poster digital untuk agenda Buka Bersama warga HSS</td>
+                                <td><span class="badge-urgency urgency-low">Rendah</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+</body>
+</html>

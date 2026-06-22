@@ -84,3 +84,18 @@ Rancangan Konten untuk Register Page (register.html)
 - Keamanan: Buat Password.
 
 - Kotak Peraturan Asrama (Syarat & Ketentuan): Kotak teks panjang yang memiliki scrollbar internal dan wajib dicentang (required) sebelum tombol daftar bisa diklik.
+
+
+
+Rancangan Struktur Halaman Penghuni (penghuni.html)
+Halaman ini berfungsi sebagai Dashboard Internal Manajemen Asrama dan dibagi menjadi 4 komponen utama:
+
+- Sistem Navigasi & Profil (Sidebar): Menu navigasi khusus internal (Dashboard, Whitelist Tugas, Keuangan) yang dilengkapi dengan kartu profil ringkas penghuni yang sedang login (Nama, Foto/Avatar, Kamar, dan Jabatan).
+
+- Sistem Peringatan Pelanggaran (Alert & Pop-up Modal): Kotak notifikasi bahaya (merah) di bagian atas halaman yang interaktif. Jika tombol diklik, akan memicu jendela pop-up (murni CSS) yang menampilkan detail BAB, Pasal, serta poin peraturan asrama yang dilanggar beserta sanksinya.
+
+- Modul Laporan Keuangan Bulanan (Finance Section): * Grafik Lingkaran (Progress Circle): Menampilkan persentase total pengeluaran dibanding pendapatan kas pada bulan berjalan.
+
+Diagram Batang (Bar Chart): Menampilkan grafik alokasi anggaran asrama yang dibagi ke dalam 5 pos (Operasional Wajib, Kegiatan & Event, Perbaikan Fasilitas, Dana Darurat, dan Buffer Kas).
+
+- Tabel Whitelist Tugas & Jabatan (Jobdesk Section): Tabel responsif yang menampilkan daftar tugas krusial dari Ketua Asrama. Fitur utamanya adalah Badge Peran (Sekretaris, Bendahara, Divisi) dan Badge Urgensi (Tinggi, Sedang, Rendah) yang memiliki warna penanda berbeda untuk mempermudah monitoring kerja pengurus.
