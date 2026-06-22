@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asrama Kita - Pendaftaran Penghuni Baru</title>
+    <!-- Menghubungkan CSS global dan CSS khusus register -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/register.css">
+</head>
+<body class="register-body">
+
+    <div class="register-container">
+        <div class="register-header">
+            <h2>Formulir Pendaftaran Asrama</h2>
+            <p>Isi data di bawah ini dengan lengkap dan benar untuk pengajuan penghuni baru.</p>
+        </div>
+
+        <!-- Form pendaftaran, jika sukses akan diarahkan kembali ke halaman login -->
+        <form action="login.html" method="GET" class="register-form">
+            
+            <!-- SECTION 1: DATA DIRI -->
+            <fieldset>
+                <legend>Data Diri Calon Penghuni</legend>
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="nama_depan">Nama Depan</label>
+                        <input type="text" id="nama_depan" required placeholder="Nama Depan">
+                    </div>
+                    <div class="input-group">
+                        <label for="nama_belakang">Nama Belakang</label>
+                        <input type="text" id="nama_belakang" required placeholder="Nama Belakang">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="tempat_lahir">Tempat Lahir</label>
+                        <input type="text" id="tempat_lahir" required placeholder="Contoh: Kandangan">
+                    </div>
+                    <div class="input-group">
+                        <label for="tanggal_lahir">Tanggal Lahir</label>
+                        <input type="date" id="tanggal_lahir" required>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="asal">Asal Daerah (Alamat Rumah)</label>
+                    <input type="text" id="asal" required placeholder="Contoh: Kabupaten Hulu Sungai Selatan">
+                </div>
+            </fieldset>
+
+            <!-- SECTION 2: DATA AKADEMIK -->
+            <fieldset>
+                <legend>Data Akademik / Kampus</legend>
+                <div class="input-group">
+                    <label for="universitas">Universitas / Perguruan Tinggi</label>
+                    <input type="text" id="universitas" required placeholder="Contoh: Universitas Lambung Mangkurat">
+                </div>
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="fakultas">Fakultas</label>
+                        <input type="text" id="fakultas" required placeholder="Contoh: Fakultas Teknik">
+                    </div>
+                    <div class="input-group">
+                        <label for="jurusan">Jurusan / Program Studi</label>
+                        <input type="text" id="jurusan" required placeholder="Contoh: Teknologi Informasi">
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- SECTION 3: DATA ORANG TUA & FINANSIAL -->
+            <fieldset>
+                <legend>Data Orang Tua & Penghasilan</legend>
+                <!-- Data Ayah -->
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="nama_ayah">Nama Ayah</label>
+                        <input type="text" id="nama_ayah" required placeholder="Nama Lengkap Ayah">
+                    </div>
+                    <div class="input-group">
+                        <label for="kerja_ayah">Pekerjaan Ayah</label>
+                        <input type="text" id="kerja_ayah" required placeholder="Contoh: PNS / Wiraswasta">
+                    </div>
+                    <div class="input-group">
+                        <label for="gaji_ayah">Penghasilan Ayah / Bulan</label>
+                        <input type="number" id="gaji_ayah" required placeholder="Rp.">
+                    </div>
+                </div>
+                <!-- Data Ibu -->
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="nama_ibu">Nama Ibu</label>
+                        <input type="text" id="nama_ibu" required placeholder="Nama Lengkap Ibu">
+                    </div>
+                    <div class="input-group">
+                        <label for="kerja_ibu">Pekerjaan Ibu</label>
+                        <input type="text" id="kerja_ibu" required placeholder="Contoh: Ibu Rumah Tangga">
+                    </div>
+                    <div class="input-group">
+                        <label for="gaji_ibu">Penghasilan Ibu / Bulan</label>
+                        <input type="number" id="gaji_ibu" required placeholder="Rp. (Isi 0 jika tidak bekerja)">
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- SECTION 4: UNGGAH BERKAS -->
+            <fieldset>
+                <legend>Unggah Berkas Pendukung (Format: PDF/JPG)</legend>
+                <div class="form-row">
+                    <div class="input-group-file">
+                        <label for="upload_ktp">Upload KTP</label>
+                        <input type="file" id="upload_ktp" required>
+                    </div>
+                    <div class="input-group-file">
+                        <label for="upload_kk">Upload Kartu Keluarga (KK)</label>
+                        <input type="file" id="upload_kk" required>
+                    </div>
+                    <div class="input-group-file">
+                        <label for="upload_gaji">Upload Slip Gaji Orang Tua</label>
+                        <input type="file" id="upload_gaji" required>
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- SECTION 5: KEAMANAN -->
+            <fieldset>
+                <legend>Keamanan Akun</legend>
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="password">Password Baru</label>
+                        <input type="password" id="password" required placeholder="Minimal 8 Karakter">
+                    </div>
+                    <div class="input-group">
+                        <label for="confirm_password">Konfirmasi Password</label>
+                        <input type="password" id="confirm_password" required placeholder="Ulangi Password">
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- SECTION 6: SYARAT & KETENTUAN (PERATURAN ASRAMA) -->
+            <div class="rules-section">
+                <label class="rules-label">Syarat & Ketentuan Peraturan Asrama</legend>
+                <!-- Kotak Peraturan dengan Scrollbar Estetik (Akan diatur di CSS) -->
+                <div class="rules-box">
+                    <h4>BAB I: Tata Tertib Umum</h4>
+                    <p>1. Setiap penghuni asrama wajib menjaga keamanan, ketertiban, dan kebersihan lingkungan asrama.</p>
+                    <p>2. Saling menghormati sesama penghuni asrama dan dilarang membuat kegaduhan yang mengganggu ketenangan belajar.</p>
+                    <p>3. Jam malam asrama berlaku hingga pukul 22.00 WITA. Gerbang utama akan dikunci setelah jam tersebut.</p>
+                    
+                    <h4>BAB II: Penggunaan Fasilitas</h4>
+                    <p>1. Fasilitas bersama (dapur, ruang belajar, WiFi) wajib dirawat dan dibersihkan kembali setelah digunakan.</p>
+                    <p>2. Dilarang merusak atau membawa fasilitas kamar/asrama keluar tanpa izin pengurus.</p>
+                    
+                    <h4>BAB III: Sanksi Pelanggaran</h4>
+                    <p>1. Pelanggaran terhadap peraturan ini akan dikenakan sanksi berupa teguran lisan, tertulis, hingga dikeluarkan dari asrama.</p>
+                </div>
+                
+                <!-- Checkbox Persetujuan ala Perusahaan/Bank -->
+                <div class="rules-checkbox">
+                    <input type="checkbox" id="agree" required>
+                    <label for="agree">Saya telah membaca, memahami, dan menyetujui seluruh Peraturan Asrama di atas serta menyatakan data yang saya isi adalah benar.</label>
+                </div>
+            </div>
+
+            <!-- Tombol Submit -->
+            <button type="submit" class="btn-register">Kirim Pendaftaran</button>
+        </form>
+
+        <div class="register-footer">
+            <p>Sudah punya akun? <a href="login.html">Masuk di sini</a></p>
+        </div>
+    </div>
+
+</body>
+</html>
