@@ -96,6 +96,6 @@ Halaman ini berfungsi sebagai Dashboard Internal Manajemen Asrama dan dibagi men
 
 - Modul Laporan Keuangan Bulanan (Finance Section): * Grafik Lingkaran (Progress Circle): Menampilkan persentase total pengeluaran dibanding pendapatan kas pada bulan berjalan.
 
-Diagram Batang (Bar Chart): Menampilkan grafik alokasi anggaran asrama yang dibagi ke dalam 5 pos (Operasional Wajib, Kegiatan & Event, Perbaikan Fasilitas, Dana Darurat, dan Buffer Kas).
+   Diagram Batang (Bar Chart): Menampilkan grafik alokasi anggaran asrama yang dibagi ke dalam 5 pos (Operasional Wajib, Kegiatan & Event, Perbaikan Fasilitas, Dana Darurat, dan Buffer Kas).
 
 - Tabel Whitelist Tugas & Jabatan (Jobdesk Section): Tabel responsif yang menampilkan daftar tugas krusial dari Ketua Asrama. Fitur utamanya adalah Badge Peran (Sekretaris, Bendahara, Divisi) dan Badge Urgensi (Tinggi, Sedang, Rendah) yang memiliki warna penanda berbeda untuk mempermudah monitoring kerja pengurus.
