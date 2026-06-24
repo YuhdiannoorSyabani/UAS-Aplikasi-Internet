@@ -44,15 +44,15 @@ ul {
 
 /* ==========================================================================
    2. NAVBAR UTAMA GLOBAL (Dipakai di Homepage, dll)
-   ========================================================================== */
+   ==========================================================================
 .navbar {
     display: flex;
-    justify-content: space-between; /* Logo di kiri, menu di kanan */
+    justify-content: space-between; /* Logo di kiri, menu di kanan 
     align-items: center;
     padding: 20px 8%;
     background-color: var(--primary-color);
     color: var(--text-light);
-    position: sticky; /* Membua navbar tetap melayang di atas saat di-scroll */
+    position: sticky; /* Membua navbar tetap melayang di atas saat di-scroll 
     top: 0;
     z-index: 1000;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -78,7 +78,7 @@ ul {
     color: var(--secondary-color);
 }
 
-/* Tombol Khusus "Area Penghuni" di Navbar */
+/* Tombol Khusus "Area Penghuni" di Navbar 
 .navbar nav ul li a.btn-login {
     background-color: var(--secondary-color);
     color: var(--text-light);
@@ -88,8 +88,71 @@ ul {
 }
 
 .navbar nav ul li a.btn-login:hover {
-    background-color: #128f76; /* Warna hijau yang sedikit lebih gelap saat di-hover */
+    background-color: #128f76; /* Warna hijau yang sedikit lebih gelap saat di-hover 
     transform: translateY(-2px);
+} */
+
+/* ==========================================================================
+   2. NAVBAR UTAMA GLOBAL (Responsive ala Gmail)
+   ========================================================================== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 4%; /* Padding dikurangi agar lebih lega di semua perangkat */
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    gap: 20px;
+}
+
+.navbar .logo {
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    white-space: nowrap; /* Mencegah nama asrama terpotong menjadi 2 baris */
+    flex-shrink: 0;      /* Logo tidak akan mengecil secara paksa */
+}
+
+.navbar nav {
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+    overflow: hidden; /* Mencegah menu merusak layout sebelum media query aktif */
+}
+
+.navbar nav ul {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Menggunakan gap, lebih aman daripada margin-left */
+}
+
+.navbar nav ul li {
+    font-size: 15px;
+    white-space: nowrap;
+}
+
+.navbar nav ul li a:hover,
+.navbar nav ul li a.active {
+    color: var(--secondary-color);
+}
+
+/* Tombol Khusus "Area Penghuni" */
+.navbar nav ul li a.btn-login {
+    background-color: var(--secondary-color);
+    color: var(--text-light);
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.navbar nav ul li a.btn-login:hover {
+    background-color: #128f76;
+    transform: translateY(-1px);
 }
 
 /* ==========================================================================
@@ -129,30 +192,31 @@ ul {
     margin: 10px auto 0 auto;
     border-radius: 2px;
 }
+
+
 /* ==========================================================================
-   5. RESPONSIVE NAVBAR UNTUK LAYAR HP (DI BAWAH 768px)
+   5. RESPONSIVE NAVBAR MINI (UNTUK LAYAR HP/TABLET)
    ========================================================================== */
 @media (max-width: 768px) {
     .navbar {
-        flex-direction: column; /* Menyusun Logo dan Menu ke bawah, bukan ke samping */
-        gap: 15px;
-        padding: 15px 5%;
-    }
-
-    .navbar nav ul {
-        flex-wrap: wrap; /* Agar jika menu kepanjangan, otomatis turun dengan rapi */
-        justify-content: center;
+        padding: 12px 3%; /* Ruang lebih hemat di HP */
         gap: 10px;
     }
 
+    .navbar .logo {
+        font-size: 18px; /* Ukuran teks logo mengecil otomatis ala Gmail */
+    }
+
+    .navbar nav ul {
+        gap: 10px; /* Jarak antar menu merapat secara estetis */
+    }
+
     .navbar nav ul li {
-        margin-left: 0; /* Menghilangkan margin kiri bawaan desktop */
-        margin: 0 5px;  /* Memberikan jarak renggang yang seimbang di HP */
+        font-size: 13px; /* Ukuran teks menu mengecil agar muat */
     }
 
     .navbar nav ul li a.btn-login {
-        display: inline-block;
-        padding: 6px 15px; /* Memperkecil sedikit ukuran tombol agar pas di layar HP */
-        font-size: 14px;
+        padding: 6px 12px;
+        font-size: 12px; /* Tombol menyesuaikan diri secara proporsional */
     }
 }

@@ -9,9 +9,7 @@
 </head>
 <body class="dashboard-body">
 
-    <input type="checkbox" id="sidebar-toggle" class="sidebar-checkbox">
-    <label for="sidebar-toggle" class="hamburger-btn">☰</label>
-
+    
     <!-- POP-UP MODAL PERINGATAN PELANGGARAN (Murni CSS dengan teknik :target) -->
     <div id="modal-pelanggaran" class="css-modal">
         <div class="modal-content">
@@ -32,29 +30,32 @@
         </div>
     </div>
 
+    <!-- <input type="checkbox" id="sidebar-toggle" class="sidebar-checkbox">
+    <div id="modal-pelanggaran" class="css-modal"></div> -->
+
     <!-- LAYOUT UTAMA -->
     <div class="dashboard-wrapper">
         
         <!-- 1. SIDEBAR NAVIGASI -->
         <aside class="sidebar">
             <div class="sidebar-brand">
-                <h3>Asrama Kita</h3>
-                <span class="user-role">Sistem Manajemen</span>
+                <label for="sidebar-toggle" class="gemini-toggle">☰</label>
+                <h3 class="brand-name">Asrama Kita</h3>
             </div>
             
             <div class="user-profile-summary">
                 <div class="user-avatar">👤</div>
                 <div class="user-info">
                     <h4>Muhammad Fauzan</h4>
-                    <p>Kamar 04 • Pengurus (PDD)</p>
+                    <p>Kamar 04 • Pengurus</p>
                 </div>
             </div>
 
             <nav class="sidebar-menu">
                 <ul>
                     <li><a href="#" class="active">📊 Dashboard</a></li>
-                    <li><a href="#tugas-whitelist">📅 Whitelist Tugas</a></li>
-                    <li><a href="#keuangan">💰 Keuangan & Anggaran</a></li>
+                    <li><a href="#tugas-whitelist">📅 Whitelist</a></li>
+                    <li><a href="#keuangan">💰 Keuangan</a></li>
                     <li class="menu-logout"><a href="index.html">🚪 Keluar</a></li>
                 </ul>
             </nav>
@@ -62,7 +63,8 @@
 
         <!-- 2. KONTEN UTAMA -->
         <main class="main-content">
-            
+            <label for="sidebar-toggle" class="floating-hamburger">☰ Menu</label>
+
             <header class="content-header">
                 <h2>Dashboard Manajemen Asrama</h2>
                 <p class="date-text">Senin, 22 Juni 2026</p>

@@ -1,15 +1,15 @@
-/* ==========================================================================
+/* /* ==========================================================================
    1. LAYOUT UTAMA DASHBOARD (Sidebar + Konten)
-   ========================================================================== */
+   ==========================================================================
 .dashboard-body {
     background-color: #f0f2f5;
     min-height: 100vh;
 }
 
 .dashboard-wrapper {
-    display: flex; /* Membagi halaman menjadi Sidebar di kiri dan Konten di kanan */
+    display: flex; /* Membagi halaman menjadi Sidebar di kiri dan Konten di kanan
     min-height: 100vh;
-}
+} */
 
 /* ==========================================================================
    2. GAYA SIDEBAR NAVIGASI INTERNAL
@@ -373,120 +373,125 @@
     to { transform: translateY(0); opacity: 1; }
 }
 /* ==========================================================================
-   1. LAYOUT UTAMA DASHBOARD RESPONSIF
+   1. STRUKTUR INTERAKTIF ALA GEMINI (Desktop & Mobile)
    ========================================================================== */
-.dashboard-body {
-    background-color: #f0f2f5;
-    min-height: 100vh;
-}
-
 .dashboard-wrapper {
     display: flex;
     min-height: 100vh;
+    width: 100%;
+    position: relative;
 }
 
-/* Sembunyikan checkbox sakelar dari layar */
 .sidebar-checkbox {
-    display: none;
+    display: none; /* Menyembunyikan input checkbox */
 }
 
-/* Tombol Hamburger (Default Tersembunyi di Desktop) */
-.hamburger-btn {
-    display: none;
-    position: fixed;
-    top: 15px;
-    left: 15px;
-    background-color: var(--primary-color);
-    color: white;
-    padding: 10px 15px;
-    border-radius: 5px;
-    font-size: 20px;
-    cursor: pointer;
-    z-index: 10001; /* Harus di atas sidebar */
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-}
-
-/* ==========================================================================
-   2. GAYA SIDEBAR NAVIGASI
-   ========================================================================== */
+/* GAYA SIDEBAR (Kondisi Terbuka / Default) */
 .sidebar {
     width: 260px;
     background-color: var(--primary-color);
     color: var(--text-light);
     display: flex;
     flex-direction: column;
-    padding: 30px 20px;
+    padding: 25px 15px;
     position: fixed;
     height: 100vh;
     left: 0;
-    transition: all 0.3s ease; /* Efek transisi bergeser yang halus */
-    z-index: 10000;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Transisi animasi mulus */
+    z-index: 1000;
 }
 
+/* AREA KONTEN UTAMA */
 .main-content {
     flex: 1;
-    margin-left: 260px;
+    margin-left: 260px; /* Memberi ruang awal sebesar lebar sidebar */
     padding: 40px;
-    transition: all 0.3s ease;
+    transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Tombol Ikon Menu di Dalam Sidebar */
+.sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 15px;
+}
+
+.gemini-toggle {
+    font-size: 20px;
+    cursor: pointer;
+    color: var(--secondary-color);
+    padding: 5px;
+    border-radius: 4px;
+}
+.gemini-toggle:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+/* Tombol Floating di Konten Utama (Hanya aktif saat sidebar tertutup) */
+.floating-hamburger {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 /* ==========================================================================
-   🔥 STRATEGI MEDIA QUERY: KHUSUS TAMPILAN BROWSER HP (DI BAWAH 768px)
+   🌟 TRIK INTI GEMINI: JIKA CHECKBOX DI-CENTANG (SIDEBAR SEMBUNYI/TUTUP)
+   ========================================================================== */
+/* Sembunyikan sidebar ke kiri luar layar */
+.sidebar-checkbox:checked ~ .dashboard-wrapper .sidebar {
+    transform: translateX(-260px);
+}
+
+/* Kembalikan margin konten utama ke nol agar memenuhi layar secara penuh */
+.sidebar-checkbox:checked ~ .dashboard-wrapper .main-content {
+    margin-left: 0;
+}
+
+/* ==========================================================================
+   📱 OPTIMALISASI LAYOUT KONTEN UNTUK LAYAR HP
    ========================================================================== */
 @media (max-width: 768px) {
-    /* Munculkan tombol hamburger di HP */
-    .hamburger-btn {
-        display: block;
-    }
-
-    /* Pindahkan posisi sidebar keluar layar kiri (Tersembunyi secara default di HP) */
+    /* Di HP, secara default sidebar kita sembunyikan dulu agar tidak menutupi konten */
     .sidebar {
-        left: -260px;
+        transform: translateX(-260px);
     }
-
-    /* Konten utama mengambil penuh layar HP kerna sidebar disembunyikan */
+    
     .main-content {
         margin-left: 0;
-        padding: 60px 15px 20px 15px; /* Tambah padding atas agar tidak tertutup tombol hamburger */
+        padding: 20px 15px;
     }
 
-    /* 🌟 TRIK INTI: Jika Checkbox Di-centang (Tombol Klik), Geser Sidebar Masuk ke Dalam Layar */
+    /* Di HP, kebalikannya: jika di-centang justru memunculkan sidebar (slide in) */
     .sidebar-checkbox:checked ~ .dashboard-wrapper .sidebar {
-        left: 0;
+        transform: translateX(0);
     }
 
-    /* MENYESUAIKAN LAYOUT KONTEN DASHBOARD DI HP AGAR TIDAK HANCUR */
+    /* Penyesuaian isi konten agar pas di layar HP */
     .finance-container {
-        flex-direction: column; /* Laporan keuangan menjadi memanjang ke bawah, bukan menyamping */
+        flex-direction: column;
         gap: 20px;
     }
 
     .finance-circle-card {
         border-right: none;
-        border-bottom: 2px solid #e2e8f0; /* Garis pembatas diubah ke bawah */
+        border-bottom: 2px solid #e2e8f0;
         padding-right: 0;
         padding-bottom: 20px;
     }
 
-    .finance-chart-card {
-        min-width: 100%;
-    }
-
-    .bar-chart-wrapper {
-        height: 180px; /* Perkecil sedikit tinggi grafik batang di HP */
-    }
-
-    .bar-label {
-        font-size: 8px; /* Perkecil font label grafik agar tidak tumpang tindih */
-    }
-
-    .alert-danger-box {
-        flex-direction: column; /* Alert pelanggaran susun ke bawah di HP */
-        text-align: center;
-        gap: 15px;
-    }
-    
-    .alert-text {
-        margin-left: 0;
-    }
+    .finance-chart-card { min-width: 100%; }
+    .bar-chart-wrapper { height: 160px; }
+    .bar-label { font-size: 8px; }
+    .alert-danger-box { flex-direction: column; text-align: center; gap: 15px; }
+    .alert-text { margin-left: 0; }
 }
