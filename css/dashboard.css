@@ -372,3 +372,121 @@
     from { transform: translateY(-50px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
 }
+/* ==========================================================================
+   1. LAYOUT UTAMA DASHBOARD RESPONSIF
+   ========================================================================== */
+.dashboard-body {
+    background-color: #f0f2f5;
+    min-height: 100vh;
+}
+
+.dashboard-wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sembunyikan checkbox sakelar dari layar */
+.sidebar-checkbox {
+    display: none;
+}
+
+/* Tombol Hamburger (Default Tersembunyi di Desktop) */
+.hamburger-btn {
+    display: none;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 10001; /* Harus di atas sidebar */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+/* ==========================================================================
+   2. GAYA SIDEBAR NAVIGASI
+   ========================================================================== */
+.sidebar {
+    width: 260px;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    display: flex;
+    flex-direction: column;
+    padding: 30px 20px;
+    position: fixed;
+    height: 100vh;
+    left: 0;
+    transition: all 0.3s ease; /* Efek transisi bergeser yang halus */
+    z-index: 10000;
+}
+
+.main-content {
+    flex: 1;
+    margin-left: 260px;
+    padding: 40px;
+    transition: all 0.3s ease;
+}
+
+/* ==========================================================================
+   🔥 STRATEGI MEDIA QUERY: KHUSUS TAMPILAN BROWSER HP (DI BAWAH 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* Munculkan tombol hamburger di HP */
+    .hamburger-btn {
+        display: block;
+    }
+
+    /* Pindahkan posisi sidebar keluar layar kiri (Tersembunyi secara default di HP) */
+    .sidebar {
+        left: -260px;
+    }
+
+    /* Konten utama mengambil penuh layar HP kerna sidebar disembunyikan */
+    .main-content {
+        margin-left: 0;
+        padding: 60px 15px 20px 15px; /* Tambah padding atas agar tidak tertutup tombol hamburger */
+    }
+
+    /* 🌟 TRIK INTI: Jika Checkbox Di-centang (Tombol Klik), Geser Sidebar Masuk ke Dalam Layar */
+    .sidebar-checkbox:checked ~ .dashboard-wrapper .sidebar {
+        left: 0;
+    }
+
+    /* MENYESUAIKAN LAYOUT KONTEN DASHBOARD DI HP AGAR TIDAK HANCUR */
+    .finance-container {
+        flex-direction: column; /* Laporan keuangan menjadi memanjang ke bawah, bukan menyamping */
+        gap: 20px;
+    }
+
+    .finance-circle-card {
+        border-right: none;
+        border-bottom: 2px solid #e2e8f0; /* Garis pembatas diubah ke bawah */
+        padding-right: 0;
+        padding-bottom: 20px;
+    }
+
+    .finance-chart-card {
+        min-width: 100%;
+    }
+
+    .bar-chart-wrapper {
+        height: 180px; /* Perkecil sedikit tinggi grafik batang di HP */
+    }
+
+    .bar-label {
+        font-size: 8px; /* Perkecil font label grafik agar tidak tumpang tindih */
+    }
+
+    .alert-danger-box {
+        flex-direction: column; /* Alert pelanggaran susun ke bawah di HP */
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .alert-text {
+        margin-left: 0;
+    }
+}

@@ -129,3 +129,30 @@ ul {
     margin: 10px auto 0 auto;
     border-radius: 2px;
 }
+/* ==========================================================================
+   5. RESPONSIVE NAVBAR UNTUK LAYAR HP (DI BAWAH 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* Menyusun Logo dan Menu ke bawah, bukan ke samping */
+        gap: 15px;
+        padding: 15px 5%;
+    }
+
+    .navbar nav ul {
+        flex-wrap: wrap; /* Agar jika menu kepanjangan, otomatis turun dengan rapi */
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .navbar nav ul li {
+        margin-left: 0; /* Menghilangkan margin kiri bawaan desktop */
+        margin: 0 5px;  /* Memberikan jarak renggang yang seimbang di HP */
+    }
+
+    .navbar nav ul li a.btn-login {
+        display: inline-block;
+        padding: 6px 15px; /* Memperkecil sedikit ukuran tombol agar pas di layar HP */
+        font-size: 14px;
+    }
+}
