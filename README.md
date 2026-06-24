@@ -1,11 +1,17 @@
 # UAS-Aplikasi-Internet
 Pembuatan Website AMR (HTML, CSS)
 
+
+
+
 Dengan 4 Halaman Struktur Utama
-Halaman 1: Homepage (Beranda) $\rightarrow$ Pintu masuk utama untuk umum/pengunjung
-Halaman 2: Login Page $\rightarrow$ Gerbang masuk untuk penghuni.
-Halaman3: Register Page (Halaman Daftar) $\rightarrow$ Jika belum punya akun, dialihkan ke sini.
-Halaman 4: Dashboard/Landing Page Penghuni $\rightarrow$ Halaman khusus setelah sukses login.
+Halaman 1: Homepage (Beranda) ---> Pintu masuk utama untuk umum/pengunjung
+Halaman 2: Login Page ---> Gerbang masuk untuk penghuni.
+Halaman 3: Register Page (Halaman Daftar) ---> Jika belum punya akun, dialihkan ke sini.
+Halaman 4: Dashboard/Landing Page Penghuni ---> Halaman khusus setelah sukses login.
+
+
+
 
 Plaintext
 📂 projek-uas-asrama/
@@ -22,30 +28,33 @@ Plaintext
 ├── register.html
 └── penghuni.html
 
+
+
+
 Rancangan Konten Utama untuk Homepage (index.html)
 Sesuai diskusi kita sebelumnya, kita akan memasukkan Detail Kamar dan Fasilitas langsung di halaman utama ini agar informatif bagi publik. Berikut adalah urutan section yang sangat bagus untuk kamu presentasikan nanti:
 
-1. Header & Navigation Bar (Menu Atas)
+- Header & Navigation Bar (Menu Atas)
 Logo/Nama Asrama di kiri, dan menu navigasi di kanan (Beranda, Fasilitas, Kamar, Kontak).
 
-Tambahkan satu tombol mencolok bertuliskan "Area Penghuni" yang akan mengarah ke halaman login.
+   = Tambahkan satu tombol mencolok bertuliskan "Area Penghuni" yang akan mengarah ke halaman login.
 
-2. Hero Section (Sambutan Utama)
+- Section (Sambutan Utama)
 Gambar latar belakang asrama yang diberi overlay gelap agar teks putih di atasnya terlihat kontras dan elegan.
 
-Kalimat sambutan yang hangat dan tombol Call to Action (CTA) seperti "Lihat Fasilitas ↓".
+   = Kalimat sambutan yang hangat dan tombol Call to Action (CTA) seperti "Lihat Fasilitas ↓".
 
-3. Section Detail Kamar (Menggunakan CSS Grid/Flexbox)
+- Section Detail Kamar (Menggunakan CSS Grid/Flexbox)
 Menampilkan tipe-tipe kamar yang ada (misal: Kamar Reguler, Kamar Pengurus, atau berdasarkan kapasitas orang).
 
-Setiap tipe kamar dibuat dalam bentuk Card (Kotak) berisi foto kamar, kapasitas, dan fasilitas dalam kamar (kasur, lemari, meja belajar).
+   = Setiap tipe kamar dibuat dalam bentuk Card (Kotak) berisi foto kamar, kapasitas, dan fasilitas dalam kamar (kasur, lemari, meja belajar).
 
-4. Section Fasilitas Bersama
+- Section Fasilitas Bersama
 Menampilkan fasilitas yang bisa digunakan bersama menggunakan ikon atau foto kecil yang rapi.
 
-Contoh: Dapur Bersama, Ruang Tamu/Aula, Ruang Belajar, WiFi Area, dan Tempat Parkir.
+   =Contoh: Dapur Bersama, Ruang Tamu/Aula, Ruang Belajar, WiFi Area, dan Tempat Parkir.
 
-5. Footer (Bagian Paling Bawah)
+- Footer (Bagian Paling Bawah)
 Berisi peta lokasi (bisa gunakan teks alamat atau embed sederhana), hak cipta, dan media sosial asrama.
 
 
@@ -53,21 +62,21 @@ Berisi peta lokasi (bisa gunakan teks alamat atau embed sederhana), hak cipta, d
 
 Rancangan Konten untuk Login Page (login.html)
 
-Kotak Login (Login Card): Berada tepat di tengah-tengah layar (menggunakan efek latar belakang visual asrama yang sedikit buram atau estetik).
+- Kotak Login (Login Card): Berada tepat di tengah-tengah layar (menggunakan efek latar belakang visual asrama yang sedikit buram atau estetik).
 
-Header Box: Logo asrama atau ikon gembok/user, diikuti judul "Log In Penghuni".
+- Header Box: Logo asrama atau ikon gembok/user, diikuti judul "Log In Penghuni".
 
-Form Input:
+- Form Input:
 
-Input untuk Username / Email (menggunakan atribut required).
+  = Input untuk Username / Email (menggunakan atribut required).
 
-Input untuk Password (menggunakan atribut required).
+  = Input untuk Password (menggunakan atribut required).
 
-Fitur Tambahan (Opsi): Checkbox "Ingat Saya" dan link "Lupa Password?" yang dibuat sejajar (menggunakan Flexbox).
+- Fitur Tambahan (Opsi): Checkbox "Ingat Saya" dan link "Lupa Password?" yang dibuat sejajar (menggunakan Flexbox).
 
-Tombol Action: Tombol "Masuk" yang didesain mencolok dan interaktif saat di-hover.
+- Tombol Action: Tombol "Masuk" yang didesain mencolok dan interaktif saat di-hover.
 
-Footer Box (Navigasi Alur): Teks "Belum punya akun? Daftar di sini" yang nantinya akan mengarah ke halaman Register.
+- Footer Box (Navigasi Alur): Teks "Belum punya akun? Daftar di sini" yang nantinya akan mengarah ke halaman Register.
 
 
 
@@ -87,6 +96,7 @@ Rancangan Konten untuk Register Page (register.html)
 
 
 
+
 Rancangan Struktur Halaman Penghuni (penghuni.html)
 Halaman ini berfungsi sebagai Dashboard Internal Manajemen Asrama dan dibagi menjadi 4 komponen utama:
 
@@ -94,8 +104,9 @@ Halaman ini berfungsi sebagai Dashboard Internal Manajemen Asrama dan dibagi men
 
 - Sistem Peringatan Pelanggaran (Alert & Pop-up Modal): Kotak notifikasi bahaya (merah) di bagian atas halaman yang interaktif. Jika tombol diklik, akan memicu jendela pop-up (murni CSS) yang menampilkan detail BAB, Pasal, serta poin peraturan asrama yang dilanggar beserta sanksinya.
 
-- Modul Laporan Keuangan Bulanan (Finance Section): * Grafik Lingkaran (Progress Circle): Menampilkan persentase total pengeluaran dibanding pendapatan kas pada bulan berjalan.
+- Modul Laporan Keuangan Bulanan (Finance Section):
+   = Grafik Lingkaran (Progress Circle): Menampilkan persentase total pengeluaran dibanding pendapatan kas pada bulan berjalan.
 
-   Diagram Batang (Bar Chart): Menampilkan grafik alokasi anggaran asrama yang dibagi ke dalam 5 pos (Operasional Wajib, Kegiatan & Event, Perbaikan Fasilitas, Dana Darurat, dan Buffer Kas).
+   = Diagram Batang (Bar Chart): Menampilkan grafik alokasi anggaran asrama yang dibagi ke dalam 5 pos (Operasional Wajib, Kegiatan & Event, Perbaikan Fasilitas, Dana Darurat, dan Buffer Kas).
 
 - Tabel Whitelist Tugas & Jabatan (Jobdesk Section): Tabel responsif yang menampilkan daftar tugas krusial dari Ketua Asrama. Fitur utamanya adalah Badge Peran (Sekretaris, Bendahara, Divisi) dan Badge Urgensi (Tinggi, Sedang, Rendah) yang memiliki warna penanda berbeda untuk mempermudah monitoring kerja pengurus.
