@@ -1,18 +1,18 @@
 /* ==========================================================================
-   1. ARSITEKTUR LAYOUT ALA GEMINI (Desktop & Mobile Responsif)
+   1. ARSITEKTUR LAYOUT (Desktop & Mobile Disamakan 100%)
    ========================================================================== */
 .dashboard-body {
     background-color: #f0f2f5;
     min-height: 100vh;
     width: 100%;
-    overflow-x: hidden; /* 🌟 Kunci Utama: Mencegah layar bocor/bisa digeser ke kanan-kiri di HP */
+    overflow-x: hidden; /* Mencegah halaman bocor/bisa digeser kanan-kiri */
 }
 
 .dashboard-wrapper {
     display: flex;
     min-height: 100vh;
     width: 100%;
-    max-width: 100%; /* Memaksa wrapper mengikuti lebar presisi perangkat */
+    max-width: 100%;
     overflow-x: hidden; 
     position: relative;
 }
@@ -22,7 +22,7 @@
     display: none;
 }
 
-/* GAYA SIDEBAR (Kondisi Terbuka / Default Standar Desktop) */
+/* GAYA SIDEBAR DEFAULT (Lebar Awal 260px untuk Desktop & Mobile) */
 .sidebar {
     width: 260px;
     background-color: var(--primary-color);
@@ -33,20 +33,23 @@
     position: fixed;
     height: 100vh;
     left: 0;
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Efek animasi geser mulus */
+    top: 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Efek animasi menciut mulus */
     z-index: 1000;
+    overflow-x: hidden;
 }
 
-/* AREA KONTEN UTAMA */
+/* AREA KONTEN UTAMA DENGAN JARAK AMAN */
 .main-content {
     flex: 1;
-    margin-left: 260px; /* Jarak awal seluas ukuran sidebar desktop */
+    margin-left: 260px; 
     padding: 40px;
-    transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    width: calc(100% - 260px);
 }
 
 /* ==========================================================================
-   2. KOMPONEN TOMBOL TOGGLE (SAKELAR INTERNAL)
+   2. KOMPONEN TOGGLE GARIS TIGA (Tetap Ada di Semua Browser)
    ========================================================================== */
 .sidebar-brand {
     display: flex;
@@ -55,55 +58,61 @@
     margin-bottom: 30px;
     border-bottom: 1px solid rgba(255,255,255,0.1);
     padding-bottom: 15px;
+    min-width: 230px;
 }
 
+/* Tombol ☰ di dalam Sidebar: Diatur agar Selalu Muncul */
 .gemini-toggle {
-    font-size: 20px;
+    font-size: 22px;
     cursor: pointer;
     color: var(--secondary-color);
     padding: 5px;
-    border-radius: 4px;
-    transition: background-color 0.2s;
-}
-
-.gemini-toggle:hover {
-    background-color: rgba(255,255,255,0.1);
-}
-
-/* Tombol Menu Melayang Cadangan di Konten Utama */
-.floating-hamburger {
-    display: inline-block;
-    background-color: var(--primary-color);
-    color: white;
-    padding: 8px 16px;
     border-radius: 6px;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    transition: background-color 0.2s;
+    display: block !important; /* Memaksa tetap tampil di resolusi manapun */
 }
 
-.floating-hamburger:hover {
-    background-color: #34495e;
+.brand-name span {
+    font-size: 20px;
+    font-weight: 700;
+    transition: opacity 0.2s;
+}
+
+/* Tombol hamburger melayang cadangan dihilangkan karena tombol utama di sidebar selalu aktif */
+.floating-hamburger {
+    display: none !important;
 }
 
 /* ==========================================================================
-   🌟 REAKSI JIKA SAKELAR DI-KLIK (SIDEBAR SEMBUNYI DI DESKTOP)
+   🌟 REAKSI GLOBAL: JIKA CHECKBOX DI-KLIK (SIDEBAR MENCIUT DI DESKTOP & HP)
    ========================================================================== */
-/* Sembunyikan sidebar mendatar keluar layar kiri */
+/* Berlaku seragam di layar monitor komputer maupun browser mobile */
 .sidebar-checkbox:checked ~ .dashboard-wrapper .sidebar {
-    transform: translateX(-260px);
+    width: 75px; /* Menciut menjadi batang ikon ramping */
 }
 
-/* Lebarkan konten utama ke ruang penuh monitor */
 .sidebar-checkbox:checked ~ .dashboard-wrapper .main-content {
-    margin-left: 0;
+    margin-left: 75px; /* Area konten utama otomatis melebar mengambil ruang */
+    width: calc(100% - 75px);
+}
+
+/* Sembunyikan semua komponen teks saat disakelar ke mode mini */
+.sidebar-checkbox:checked ~ .dashboard-wrapper .sidebar .brand-name span,
+.sidebar-checkbox:checked ~ .dashboard-wrapper .sidebar .user-info,
+.sidebar-checkbox:checked ~ .dashboard-wrapper .sidebar .menu-text {
+    opacity: 0;
+    display: none;
+}
+
+/* Menata ulang kotak profil menjadi terpusat di tengah */
+.sidebar-checkbox:checked ~ .dashboard-wrapper .sidebar .user-profile-summary {
+    background-color: transparent;
+    padding: 12px 0;
+    justify-content: center;
+    min-width: auto;
 }
 
 /* ==========================================================================
-   3. DETAIL KOMPONEN SIDEBAR INTERNAL
+   3. DETAIL ELEMEN INTERNAL MENU
    ========================================================================== */
 .user-profile-summary {
     display: flex;
@@ -113,6 +122,7 @@
     padding: 12px;
     border-radius: 8px;
     margin-bottom: 25px;
+    min-width: 230px;
 }
 
 .user-avatar {
@@ -122,38 +132,48 @@
     border-radius: 50%;
 }
 
-.user-info h4 { font-size: 14px; font-weight: 600; }
-.user-info p { font-size: 11px; color: #bdc3c7; }
+.user-info h4 { font-size: 14px; font-weight: 600; white-space: nowrap; }
+.user-info p { font-size: 11px; color: #bdc3c7; white-space: nowrap; }
 
 .sidebar-menu ul li { margin-bottom: 6px; }
 .sidebar-menu ul li a {
-    display: block;
+    display: flex;
+    align-items: center;
+    gap: 15px;
     padding: 12px 15px;
     border-radius: 6px;
-    font-size: 15px;
-    font-weight: 500;
     color: #ecf0f1;
+    text-decoration: none;
+    min-width: 230px;
 }
 
 .sidebar-menu ul li a:hover,
 .sidebar-menu ul li a.active {
     background-color: var(--secondary-color);
     color: var(--text-light);
-    padding-left: 20px;
+}
+
+.menu-icon {
+    font-size: 18px;
+    display: inline-block;
+    width: 25px;
+    text-align: center;
+}
+
+.menu-text {
+    font-size: 15px;
+    font-weight: 500;
 }
 
 .menu-logout a:hover {
     background-color: var(--accent-color) !important;
 }
 
-/* Header Judul Konten */
+/* Header & Box */
 .content-header { margin-bottom: 25px; }
 .content-header h2 { color: var(--primary-color); font-size: 26px; }
 .date-text { color: #7f8c8d; font-size: 14px; }
 
-/* ==========================================================================
-   4. SEKSI NOTIFIKASI ALARM PELANGGARAN
-   ========================================================================== */
 .alert-danger-box {
     background-color: #fde8e8;
     border-left: 5px solid var(--accent-color);
@@ -164,12 +184,10 @@
     justify-content: space-between;
     margin-bottom: 30px;
 }
-
 .alert-icon { font-size: 22px; }
 .alert-text { flex: 1; margin-left: 15px; }
 .alert-text h4 { color: #c81e1e; margin-bottom: 2px; font-size: 16px; }
 .alert-text p { color: #9b1c1c; font-size: 14px; }
-
 .btn-alert-action {
     background-color: var(--accent-color);
     color: var(--text-light);
@@ -178,9 +196,7 @@
     font-size: 13px;
     font-weight: 600;
 }
-.btn-alert-action:hover { background-color: #c81e1e; transform: scale(1.03); }
 
-/* WADAH KOTAK PUTIH KONTEN (DASHBOARD CARDS) */
 .dashboard-section {
     background-color: var(--text-light);
     padding: 25px;
@@ -191,7 +207,7 @@
 .section-desc { color: #7f8c8d; font-size: 14px; margin-bottom: 20px; }
 
 /* ==========================================================================
-   5. SEKSI MODUL KEUANGAN & ANGGARAN (GRAFIK MURNI CSS)
+   4. MODUL KEUANGAN & ANGGARAN
    ========================================================================== */
 .finance-container {
     display: flex;
@@ -199,7 +215,6 @@
     flex-wrap: wrap;
 }
 
-/* Grafik Lingkaran Persentase */
 .finance-circle-card {
     flex: 1;
     min-width: 240px;
@@ -237,14 +252,14 @@
 
 .finance-summary-text { font-size: 13.5px; line-height: 1.8; text-align: center; }
 
-/* Grafik Batang Alokasi Dana */
+/* DIAGRAM BATANG */
 .finance-chart-card { 
     flex: 2; 
     min-width: 320px; 
 }
 
 .finance-chart-card h4 {
-    margin-bottom: 35px; /* 🌟 Ditambah ruang amannya agar tidak tertabrak tooltip angka */
+    margin-bottom: 35px; 
     color: var(--primary-color);
     font-size: 16px;
 }
@@ -253,13 +268,13 @@
     display: flex;
     justify-content: space-around;
     align-items: flex-end;
-    height: 180px; /* 🌟 Diturunkan sedikit tingginya agar lebih seimbang */
+    height: 180px; 
     border-bottom: 2px solid #bdc3c7;
     padding-bottom: 5px;
-    margin-top: 10px; /* 🌟 Memberi jarak pemisah dari teks h4 di atasnya */
+    margin-top: 10px; 
 }
 
-.chart-bar-group { display: flex; flex-direction: column; align-items: center; width: 10%; }
+.chart-bar-group { display: flex; flex-direction: column; align-items: center; width: 14%; }
 .bar-container {
     width: 100%;
     height: 150px;
@@ -293,16 +308,25 @@
 .bar-label { font-size: 9.5px; text-align: center; color: #7f8c8d; margin-top: 8px; font-weight: 600; }
 
 /* ==========================================================================
-   6. GAYA TABEL WHITELIST JABATAN
+   5. GAYA TABEL WHITELIST JABATAN
    ========================================================================== */
 .table-container { overflow-x: auto; }
 .jobdesk-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 13.5px; }
 .jobdesk-table th, .jobdesk-table td { padding: 12px 15px; border-bottom: 1px solid #e2e8f0; }
 .jobdesk-table th { background-color: #f8f9fa; color: var(--primary-color); font-weight: 700; }
 .jobdesk-table tbody tr:nth-child(even) { background-color: #fbfbfb; }
-.jobdesk-table tbody tr:hover { background-color: #f1f2f6; }
 
-.badge-role { padding: 6px 12px; border-radius: 4px; font-size: 11px; font-weight: bold; white-space: nowrap; color: white; }
+.badge-role { 
+    padding: 6px 12px; 
+    border-radius: 4px; 
+    font-size: 11px; 
+    font-weight: bold; 
+    white-space: nowrap; 
+    color: white; 
+    display: inline-block;
+    text-align: center;
+    min-width: 110px; 
+}
 .role-sekretaris { background-color: #9b59b6; }
 .role-bendahara { background-color: #2ecc71; }
 .role-divisi { background-color: #34495e; }
@@ -313,7 +337,7 @@
 .urgency-low { background-color: #e1effe; color: #1e429f; }
 
 /* ==========================================================================
-   7. MODEL POP-UP MODAL ENGINE MURNI CSS (:TARGET)
+   6. MODEL POP-UP MODAL ENGINE MURNI CSS
    ========================================================================== */
 .css-modal {
     position: fixed;
@@ -338,10 +362,7 @@
     animation: modalSlide 0.3s ease-out;
 }
 .close-modal { position: absolute; top: 12px; right: 18px; font-size: 26px; color: #95a5a6; }
-.close-modal:hover { color: var(--text-dark); }
-.modal-body-text { margin-top: 12px; }
 .pasal-box { background-color: #f8f9fa; border: 1px solid #e2e8f0; padding: 12px; border-radius: 6px; margin: 12px 0; }
-.pasal-box h4 { color: var(--primary-color); margin-bottom: 4px; }
 .status-sanksi { font-size: 13.5px; background-color: #fff8f8; padding: 10px; border-left: 3px solid var(--accent-color); }
 
 @keyframes modalSlide {
@@ -350,33 +371,29 @@
 }
 
 /* ==========================================================================
-   📱 8. OPTIMALISASI AKURAT KHUSUS LAYAR HP (DI BAWAH 768px)
+   📱 7. STRUKTUR MEDIA QUERIES MOBILE (Hanya Reflow Konten/Card Saja)
    ========================================================================== */
 @media (max-width: 768px) {
-    /* Di HP, secara default posisi sidebar disembunyikan keluar layar kiri */
-    .sidebar {
-        transform: translateX(-260px);
+    /* Bagian Konten Utama menyesuaikan jika sidebar menciut */
+    .sidebar-checkbox:checked ~ .dashboard-wrapper .main-content {
+        margin-left: 75px;
+        padding: 20px 10px;
+        width: calc(100% - 75px);
     }
     
-    /* Konten utama merapat penuh mengisi ruang kosong tanpa padding berlebih */
+    /* Ketika sidebar tidak dicentang (Kondisi Awal HP), biarkan ia selebar desktop */
     .main-content {
-        margin-left: 0;
-        padding: 20px 12px; /* Diperkecil agar komponen putih mendapat ruang lega */
-        width: 100%;
-        max-width: 100%;
+        margin-left: 260px;
+        padding: 20px 10px;
+        width: calc(100% - 260px);
     }
 
     .dashboard-section {
-        padding: 15px; /* Mengurangi padding card putih di HP agar tidak sesak */
+        padding: 15px;
         width: 100%;
     }
 
-    /* Di HP: Jika sakelar hamburger di-klik, panggil masuk kembali sidebar ke layar */
-    .sidebar-checkbox:checked ~ .dashboard-wrapper .sidebar {
-        transform: translateX(0);
-    }
-
-    /* Penataan Komponen Keuangan di Layar Sempit HP */
+    /* Penataan Khusus Card agar tidak overflow di layar kecil HP */
     .finance-container {
         flex-direction: column;
         gap: 25px;
@@ -397,7 +414,7 @@
     }
 
     .finance-chart-card h4 {
-        margin-bottom: 65px; /* Jarak aman ekstra di HP agar tooltip tidak menabrak judul h4 */
+        margin-bottom: 65px; 
     }
     
     .bar-chart-wrapper { 
@@ -408,7 +425,7 @@
     .bar-label { 
         font-size: 8px; 
         margin-top: 10px; 
-        white-space: normal; /* Mengizinkan teks label pos anggaran turun baris di HP jika sempit */
+        white-space: normal; 
     }
     
     .alert-danger-box { 
