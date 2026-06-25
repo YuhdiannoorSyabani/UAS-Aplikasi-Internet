@@ -9,8 +9,8 @@
 </head>
 <body class="dashboard-body">
 
-    
-    <!-- POP-UP MODAL PERINGATAN PELANGGARAN (Murni CSS dengan teknik :target) -->
+    <input type="checkbox" id="sidebar-toggle" class="sidebar-checkbox">
+
     <div id="modal-pelanggaran" class="css-modal">
         <div class="modal-content">
             <a href="#" class="close-modal">&times;</a>
@@ -22,7 +22,7 @@
                 <div class="pasal-box">
                     <h4>BAB III: Tata Tertib Malam</h4>
                     <p><strong>Pasal 7 (Poin b):</strong> "Setiap penghuni wajib berada di dalam asrama paling lambat pukul 22.00 WITA."</p>
-                    <p class="Keterangan-pelanggaran"><em>Keterangan: Terlambat kembali ke asrama tanpa izin tertulis dari Divisi Keamanan.</em></p>
+                    <p class="keterangan-pelanggaran"><em>Keterangan: Terlambat kembali ke asrama tanpa izin tertulis dari Divisi Keamanan.</em></p>
                 </div>
                 
                 <p class="status-sanksi"><strong>Sanksi:</strong> Teguran Lisan & Piket Tambahan Bersama Divisi Perlengkapan.</p>
@@ -30,13 +30,8 @@
         </div>
     </div>
 
-    <!-- <input type="checkbox" id="sidebar-toggle" class="sidebar-checkbox">
-    <div id="modal-pelanggaran" class="css-modal"></div> -->
-
-    <!-- LAYOUT UTAMA -->
     <div class="dashboard-wrapper">
         
-        <!-- 1. SIDEBAR NAVIGASI -->
         <aside class="sidebar">
             <div class="sidebar-brand">
                 <label for="sidebar-toggle" class="gemini-toggle">☰</label>
@@ -47,50 +42,45 @@
                 <div class="user-avatar">👤</div>
                 <div class="user-info">
                     <h4>Muhammad Fauzan</h4>
-                    <p>Kamar 04 • Pengurus</p>
+                    <p>Kamar 04 • Pengurus (PDD)</p>
                 </div>
             </div>
 
             <nav class="sidebar-menu">
                 <ul>
                     <li><a href="#" class="active">📊 Dashboard</a></li>
-                    <li><a href="#tugas-whitelist">📅 Whitelist</a></li>
-                    <li><a href="#keuangan">💰 Keuangan</a></li>
+                    <li><a href="#keuangan">💰 Keuangan & Anggaran</a></li>
+                    <li><a href="#tugas-whitelist">📅 Whitelist Tugas</a></li>
                     <li class="menu-logout"><a href="index.html">🚪 Keluar</a></li>
                 </ul>
             </nav>
         </aside>
 
-        <!-- 2. KONTEN UTAMA -->
         <main class="main-content">
-            <label for="sidebar-toggle" class="floating-hamburger">☰ Menu</label>
-
+            
+            <label for="sidebar-toggle" class="floating-hamburger">☰ Menu Utama</label>
+            
             <header class="content-header">
                 <h2>Dashboard Manajemen Asrama</h2>
                 <p class="date-text">Senin, 22 Juni 2026</p>
             </header>
 
-            <!-- FITUR 1: NOTIFIKASI PERINGATAN PELANGGARAN -->
             <div class="alert-danger-box">
                 <span class="alert-icon">🚨</span>
                 <div class="alert-text">
                     <h4>Sistem Peringatan Pelanggaran!</h4>
-                    <p>Anda memiliki 1 catatan pelanggaran belum diselesaikan bulan ini.</p>
+                    <p>Anda memiliki 1 catatan pelanggaran aktif yang belum diselesaikan bulan ini.</p>
                 </div>
-                <!-- Tombol ini memicu pop-up melalui link #modal-pelanggaran -->
                 <a href="#modal-pelanggaran" class="btn-alert-action">Lihat Pasal & Poin</a>
             </div>
 
-            <!-- FITUR 2: KEUANGAN ASRAMA (Lingkaran Persentase & Diagram Batang CSS) -->
             <section id="keuangan" class="dashboard-section">
                 <h3>💰 Laporan Keuangan Bulanan (Juni 2026)</h3>
                 <p class="section-desc">Ringkasan total anggaran, persentase pengeluaran, dan alokasi dana per pos.</p>
                 
                 <div class="finance-container">
-                    <!-- Lingkaran Persentase Total Pengeluaran -->
                     <div class="finance-circle-card">
                         <h4>Total Pengeluaran</h4>
-                        <!-- Lingkaran dibuat memanfaatkan CSS conic-gradient/border -->
                         <div class="progress-circle" style="--percent: 65;">
                             <span class="circle-value">65%</span>
                         </div>
@@ -100,12 +90,10 @@
                         </div>
                     </div>
 
-                    <!-- Diagram Batang Pengeluaran Per Pos -->
                     <div class="finance-chart-card">
-                        <h4>Alokasi Pengeluaran Per Pos</h4>
+                        <h4>Alokasi Pengeluaran Per Pos Anggaran</h4>
                         <div class="bar-chart-wrapper">
                             
-                            <!-- Batang 1 -->
                             <div class="chart-bar-group">
                                 <div class="bar-container">
                                     <div class="bar-fill color-1" style="height: 80%;">
@@ -115,7 +103,6 @@
                                 <span class="bar-label">Operasional Wajib</span>
                             </div>
 
-                            <!-- Batang 2 -->
                             <div class="chart-bar-group">
                                 <div class="bar-container">
                                     <div class="bar-fill color-2" style="height: 60%;">
@@ -125,17 +112,15 @@
                                 <span class="bar-label">Kegiatan & Event</span>
                             </div>
 
-                            <!-- Batang 3 -->
                             <div class="chart-bar-group">
                                 <div class="bar-container">
                                     <div class="bar-fill color-3" style="height: 45%;">
                                         <span class="bar-tooltip">45%</span>
                                     </div>
                                 </div>
-                                <span class="bar-label">Perbaikan & Fasilitas</span>
+                                <span class="bar-label">Perbaikan Fasilitas</span>
                             </div>
 
-                            <!-- Batang 4 -->
                             <div class="chart-bar-group">
                                 <div class="bar-container">
                                     <div class="bar-fill color-4" style="height: 30%;">
@@ -145,7 +130,6 @@
                                 <span class="bar-label">Dana Darurat</span>
                             </div>
 
-                            <!-- Batang 5 -->
                             <div class="chart-bar-group">
                                 <div class="bar-container">
                                     <div class="bar-fill color-5" style="height: 15%;">
@@ -160,17 +144,16 @@
                 </div>
             </section>
 
-            <!-- FITUR 3: WHITELIST TUGAS & JABATAN KRUSIAL -->
             <section id="tugas-whitelist" class="dashboard-section">
                 <h3>📋 Whitelist Tugas & Jabatan Krusial</h3>
-                <p class="section-desc">Daftar tugas khusus langsung dari Ketua Asrama untuk pengurus dan divisi tertentu.</p>
+                <p class="section-desc">Daftar tugas khusus langsung dari Ketua Asrama untuk pimpinan, pengurus, dan divisi khusus.</p>
                 
                 <div class="table-container">
                     <table class="jobdesk-table">
                         <thead>
                             <tr>
-                                <th>Pelaksana / Divisi</th>
-                                <th>Badge Jabatan</th>
+                                <th>Pelaksana Tugas</th>
+                                <th>Badge Peran</th>
                                 <th>Tugas Krusial Whitelist</th>
                                 <th>Tingkat Urgensi</th>
                             </tr>
@@ -179,25 +162,25 @@
                             <tr>
                                 <td><strong>Inayah</strong></td>
                                 <td><span class="badge-role role-sekretaris">Sekretaris</span></td>
-                                <td>Menyusun laporan proposal tahunan Musyawarah Besar Asrama</td>
+                                <td>Menyusun laporan proposal tahunan untuk agenda Musyawarah Besar Asrama</td>
                                 <td><span class="badge-urgency urgency-high">Tinggi</span></td>
                             </tr>
                             <tr>
                                 <td><strong>Ahla</strong></td>
                                 <td><span class="badge-role role-bendahara">Bendahara</span></td>
-                                <td>Audit kas bulanan dan alokasi dana darurat perbaikan WiFi</td>
+                                <td>Audit kas bulanan dan alokasi dana darurat perbaikan WiFi utama</td>
                                 <td><span class="badge-urgency urgency-high">Tinggi</span></td>
                             </tr>
                             <tr>
                                 <td><strong>Yuhdi</strong></td>
-                                <td><span class="badge-role role-divisi">Div. Perlengkapan</span></td>
-                                <td>Pendataan aset inventaris kamar reguller nomor 01 sampai 10</td>
+                                <td><span class="badge-role role-divisi">Div. Perkap</span></td>
+                                <td>Pendataan aset inventaris kamar reguler nomor 01 sampai dengan nomor 10</td>
                                 <td><span class="badge-urgency urgency-medium">Sedang</span></td>
                             </tr>
                             <tr>
                                 <td><strong>Fauzan</strong></td>
                                 <td><span class="badge-role role-divisi">Div. PDD</span></td>
-                                <td>Membuat desain poster digital untuk agenda Buka Bersama warga HSS</td>
+                                <td>Membuat konsep desain poster digital untuk agenda Buka Bersama warga HSS</td>
                                 <td><span class="badge-urgency urgency-low">Rendah</span></td>
                             </tr>
                         </tbody>

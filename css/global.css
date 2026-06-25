@@ -204,7 +204,7 @@ ul {
     }
 
     .navbar .logo {
-        font-size: 18px; /* Ukuran teks logo mengecil otomatis ala Gmail */
+        font-size: 15px; /* Ukuran teks logo mengecil otomatis ala Gmail */
     }
 
     .navbar nav ul {
@@ -212,11 +212,11 @@ ul {
     }
 
     .navbar nav ul li {
-        font-size: 13px; /* Ukuran teks menu mengecil agar muat */
+        font-size: 10px; /* Ukuran teks menu mengecil agar muat */
     }
 
     .navbar nav ul li a.btn-login {
         padding: 6px 12px;
-        font-size: 12px; /* Tombol menyesuaikan diri secara proporsional */
+        font-size: 10px; /* Tombol menyesuaikan diri secara proporsional */
     }
 }
