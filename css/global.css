@@ -97,6 +97,7 @@ ul {
    ========================================================================== */
 .navbar {
     display: flex;
+    height: 80px;
     justify-content: space-between;
     align-items: center;
     padding: 15px 4%; /* Padding dikurangi agar lebih lega di semua perangkat */
@@ -204,7 +205,7 @@ ul {
     }
 
     .navbar .logo {
-        font-size: 15px; /* Ukuran teks logo mengecil otomatis ala Gmail */
+        font-size: 17px; /* Ukuran teks logo mengecil otomatis ala Gmail */
     }
 
     .navbar nav ul {
@@ -212,11 +213,11 @@ ul {
     }
 
     .navbar nav ul li {
-        font-size: 10px; /* Ukuran teks menu mengecil agar muat */
+        font-size: 11px; /* Ukuran teks menu mengecil agar muat */
     }
 
     .navbar nav ul li a.btn-login {
         padding: 6px 12px;
-        font-size: 10px; /* Tombol menyesuaikan diri secara proporsional */
+        font-size: 85%; /* Tombol menyesuaikan diri secara proporsional */
     }
 }
